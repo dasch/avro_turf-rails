@@ -6,7 +6,7 @@ module AvroTurf::Rails::AvroHelpers
   end
 
   def avro_schema
-    self.class.avro_schema
+    self.class.schema
   end
 
   private
@@ -24,7 +24,7 @@ module AvroTurf::Rails::AvroHelpers
   end
 
   module ClassMethods
-    def avro_schema(name = nil)
+    def schema(name = nil)
       @avro_schema = name.to_s if name
       @avro_schema
     end

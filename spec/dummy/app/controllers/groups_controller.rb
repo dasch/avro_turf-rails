@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-  avro_schema :group
+  schema :group
 
   def show
     @group = { "name" => "VIP" }
