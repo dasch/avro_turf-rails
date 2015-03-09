@@ -1,0 +1,7 @@
+{
+  "name": "group",
+  "type": "record",
+  "fields": [
+    { "name": "name", "type": "string" }
+  ]
+}
