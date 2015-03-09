@@ -23,16 +23,6 @@ module AvroTurf::Rails::AvroHelpers
     params[schema_name] = decoded_data
   end
 
-  def render_to_body(options = {})
-    return super unless request.format.avro?
-
-    schema_name = avro_schema or return super
-    data = instance_variable_get("@#{schema_name}") or return super
-
-    avro = AvroTurf.new(schemas_path: Rails.root.join("app/schemas"))
-    avro.encode(@group, schema_name: schema_name)
-  end
-
   module ClassMethods
     def avro_schema(name = nil)
       @avro_schema = name.to_s if name

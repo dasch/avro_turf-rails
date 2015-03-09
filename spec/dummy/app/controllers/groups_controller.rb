@@ -8,6 +8,6 @@ class GroupsController < ApplicationController
   def create
     @group = params[:group]
 
-    render avro: @group, status: :created
+    render status: :created
   end
 end
