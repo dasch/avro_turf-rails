@@ -1,8 +1,12 @@
+require 'avro_turf/rails/avro_helpers'
+
 class AvroTurf
   module Rails
     class Railtie < ::Rails::Railtie
       initializer 'avro_turf.initialize_avro_serialization' do
         Mime::Type.register "avro/binary", :avro
+
+        ActionController::Base.send(:include, AvroTurf::Rails::AvroHelpers)
 
         avro = AvroTurf.new(schemas_path: ::Rails.root.join("app", "schemas"))
 
